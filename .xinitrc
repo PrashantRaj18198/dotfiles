@@ -1,1 +1,1 @@
-xroadmap ~/.speedwapper
+xmodmap ~/.speedwapper
