@@ -379,7 +379,7 @@ semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 
 [shell]
 program = "zsh"
-args = ["-c", "/opt/homebrew/bin/tmux"]
+args = ["--login", "-c", "tmux"]
 
 [window]
 decorations = "full"
