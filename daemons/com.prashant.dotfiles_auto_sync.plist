@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!-- Label: A unique identifier for your job -->
+    <key>Label</key>
+    <string>com.prashant.dotfiles_auto_sync</string>
+
+    <!-- Set environment variables -->
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>HOME</key>
+        <string>/Users/prashant</string>  <!-- Set HOME environment variable -->
+    </dict>
+
+    <!-- Program to run -->
+    <key>ProgramArguments</key>
+    <array>
+	<string>/bin/zsh</string>
+	<string>-c</string>
+	<string>source /Users/prashant/.zshrc && /bin/bash /Users/prashant/dotfiles/scripts/auto_push.sh</string>
+    </array>
+
+    <key>StandardOutPath</key>
+    <string>/Users/prashant/dotfiles/logs/dotfiles_auto_sync.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/prashant/dotfiles/logs/dotfiles_auto_sync_error.log</string>
+
+    <!-- When to run the job -->
+    <!-- For example, to run every minute -->
+    <key>StartInterval</key>
+    <integer>60</integer>
+
+    <!-- Make sure the job runs even if the user logs out -->
+    <key>KeepAlive</key>
+    <true/>
+</dict>
+</plist>
+
