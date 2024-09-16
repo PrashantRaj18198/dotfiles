@@ -48,7 +48,6 @@ render_timer = false
 
 [font]
 size = 14.0
-family = "Fire Code Nerd Font"
 
 # [font.bold]
 # family = "Fire Code Nerd Font"
@@ -62,9 +61,8 @@ y = 0
 # family = "Iosevka"
 # style = "Light Italic"
 
-# [font.normal]
-# family = "Iosevka"
-# style = "Light"
+[font.normal]
+family = "Fire Code Nerd Font"
 
 # [font.offset]
 # x = 0
