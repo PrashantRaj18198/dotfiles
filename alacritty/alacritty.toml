@@ -48,26 +48,27 @@ render_timer = false
 
 [font]
 size = 14.0
+family = "Fire Code Nerd Font"
 
-[font.bold]
-family = "Iosevka"
-style = "Medium"
+# [font.bold]
+# family = "Fire Code Nerd Font"
+# style = "Medium"
 
 [font.glyph_offset]
 x = 0
 y = 0
 
-[font.italic]
-family = "Iosevka"
-style = "Light Italic"
+# [font.italic]
+# family = "Iosevka"
+# style = "Light Italic"
 
-[font.normal]
-family = "Iosevka"
-style = "Light"
+# [font.normal]
+# family = "Iosevka"
+# style = "Light"
 
-[font.offset]
-x = 0
-y = 0
+# [font.offset]
+# x = 0
+# y = 0
 
 [[keyboard.bindings]]
 action = "Paste"
