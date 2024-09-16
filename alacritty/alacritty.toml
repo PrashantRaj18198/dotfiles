@@ -385,6 +385,7 @@ args = ["--login", "-c", "tmux attach || tmux new"]
 decorations = "full"
 dynamic_padding = true
 startup_mode = "Windowed"
+option_as_alt = "OnlyRight"
 
 [window.dimensions]
 columns = 100
