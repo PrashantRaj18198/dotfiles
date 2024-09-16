@@ -62,7 +62,8 @@ y = 0
 # style = "Light Italic"
 
 [font.normal]
-family = "Fire Code Nerd Font"
+# family = "Fire Code Nerd Font"
+family = "Iosevka Nerd Font"
 
 # [font.offset]
 # x = 0
