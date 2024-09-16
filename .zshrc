@@ -132,3 +132,6 @@ if [[ ":$PATH:" != *":$BREW_SBIN_PATH:"* ]]; then
   export PATH="$BREW_SBIN_PATH:$PATH"
 fi
 
+export PATH="~/.local/bin:$PATH"
+
+
