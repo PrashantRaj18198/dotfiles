@@ -7,69 +7,89 @@
 -- lvim.leader = "g"
 lvim.plugins = {
   {
-  'projekt0n/github-nvim-theme',
-  lazy = false, -- make sure we load this during startup if it is your main colorscheme
-  priority = 1000, -- make sure to load this before all the other start plugins
-  config = function()
-    require('github-theme').setup({
-      -- ...
-    })
+    'projekt0n/github-nvim-theme',
+    lazy = false,  -- make sure we load this during startup if it is your main colorscheme
+    priority = 1000, -- make sure to load this before all the other start plugins
+    config = function()
+      require('github-theme').setup({
+        -- ...
+      })
 
-    vim.cmd('colorscheme github_dark')
-  end,
+      vim.cmd('colorscheme github_dark')
+    end,
   },
   {
-  'wfxr/minimap.vim',
-  build = "cargo install --locked code-minimap",
-  -- cmd = {"Minimap", "MinimapClose", "MinimapToggle", "MinimapRefresh", "MinimapUpdateHighlight"},
-  config = function ()
-    vim.cmd ("let g:minimap_width = 10")
-    vim.cmd ("let g:minimap_auto_start = 1")
-    vim.cmd ("let g:minimap_auto_start_win_enter = 1")
-  end,
+    'wfxr/minimap.vim',
+    build = "cargo install --locked code-minimap",
+    -- cmd = {"Minimap", "MinimapClose", "MinimapToggle", "MinimapRefresh", "MinimapUpdateHighlight"},
+    config = function()
+      vim.cmd("let g:minimap_width = 10")
+      vim.cmd("let g:minimap_auto_start = 1")
+      vim.cmd("let g:minimap_auto_start_win_enter = 1")
+    end,
   },
   {
     "lepture/vim-jinja",
   },
   {
-  "nvim-neo-tree/neo-tree.nvim",
-  branch = "v2.x",
-  dependencies = {
-    "nvim-lua/plenary.nvim",
-    "nvim-tree/nvim-web-devicons",
-    "MunifTanjim/nui.nvim",
-  },
-  config = function()
-    require("neo-tree").setup({
-      close_if_last_window = true,
-      window = {
-        width = 30,
-      },
-      buffers = {
-        follow_current_file = true,
-      },
-      filesystem = {
-        follow_current_file = true,
-        filtered_items = {
-          hide_dotfiles = false,
-          hide_gitignored = false,
-          hide_by_name = {
-            "node_modules"
-          },
-          never_show = {
-            ".DS_Store",
-            "thumbs.db"
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v2.x",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons",
+      "MunifTanjim/nui.nvim",
+    },
+    config = function()
+      require("neo-tree").setup({
+        close_if_last_window = true,
+        window = {
+          width = 30,
+        },
+        buffers = {
+          follow_current_file = true,
+        },
+        filesystem = {
+          follow_current_file = true,
+          filtered_items = {
+            hide_dotfiles = false,
+            hide_gitignored = false,
+            hide_by_name = {
+              "node_modules"
+            },
+            never_show = {
+              ".DS_Store",
+              "thumbs.db"
+            },
           },
         },
-      },
-    })
-  end
+      })
+    end
   },
   {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = {}
-  }
+  },
+  {
+    "ruifm/gitlinker.nvim",
+    event = "BufRead",
+    config = function()
+      require("gitlinker").setup {
+        opts = {
+          -- remote = 'github', -- force the use of a specific remote
+          -- adds current line nr in the url for normal mode
+          add_current_line_on_normal_mode = true,
+          -- callback for what to do with the url
+          action_callback = require("gitlinker.actions").open_in_browser,
+          -- print the url after performing the action
+          print_url = false,
+          -- mapping to call url generation
+          mappings = "<leader>gy",
+        },
+      }
+    end,
+    dependencies = "nvim-lua/plenary.nvim",
+  },
 }
 
 lvim.builtin.nvimtree.active = false
@@ -82,13 +102,13 @@ lvim.builtin.terminal.open_mapping = "<c-t>"
 lvim.lsp.buffer_mappings.normal_mode['gi'] = { "<cmd>lua vim.lsp.buf.implementation()<CR>", "Go to Implementation" }
 
 -- Optionally remove or remap the `gI` keybinding
-lvim.lsp.buffer_mappings.normal_mode['gI'] = nil  -- Removes the gI keybindingk
+lvim.lsp.buffer_mappings.normal_mode['gI'] = nil -- Removes the gI keybindingk
 
 -- Remap LSP hover action from 'K' to 'gh'
 lvim.lsp.buffer_mappings.normal_mode['gh'] = { "<cmd>lua vim.lsp.buf.hover()<CR>", "LSP Hover" }
 
 -- Optionally, remove the default 'K' binding
-lvim.lsp.buffer_mappings.normal_mode['K'] = nil  -- Remove this if you don't want 'K' to trigger hover
+lvim.lsp.buffer_mappings.normal_mode['K'] = nil -- Remove this if you don't want 'K' to trigger hover
 
 -- Remap <leader><leader> to save the current file
 lvim.keys.normal_mode["<leader><leader>"] = ":w<CR>"
@@ -108,20 +128,20 @@ lvim.keys.normal_mode["]d"] = "<cmd>lua vim.diagnostic.goto_next({severity = vim
 lvim.keys.normal_mode["[d"] = "<cmd>lua vim.diagnostic.goto_prev({severity = vim.diagnostic.severity.ERROR})<CR>"
 
 --- *** File type associations *** ---
-vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
-  pattern = {"*.j2", "*.jinja", "*.jinja2"},
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = { "*.j2", "*.jinja", "*.jinja2" },
   command = "set filetype=jinja",
 })
 
 --- *** LSP *** ---
 --
 -- Auto-reload the Go LSP when `go.mod` or `go.sum` is modified
-vim.api.nvim_create_autocmd({"BufWritePost"}, {
-  pattern = {"go.mod", "go.sum"},
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+  pattern = { "go.mod", "go.sum" },
   callback = function()
     -- Notify user about the LSP reload and reload the LSP for Go
     vim.lsp.stop_client(vim.lsp.get_active_clients(), true)
-    vim.cmd("edit")  -- Re-open the buffer to reinitialize the LSP
+    vim.cmd("edit") -- Re-open the buffer to reinitialize the LSP
     print("Go LSP reloaded after updating go.mod or go.sum")
   end,
 })
