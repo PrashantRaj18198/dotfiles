@@ -101,7 +101,7 @@ lvim.plugins = {
   {
     "sindrets/diffview.nvim",
     event = "BufRead",
-  },
+  }
 }
 
 lvim.builtin.nvimtree.active = false
