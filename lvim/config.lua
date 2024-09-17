@@ -125,3 +125,17 @@ vim.api.nvim_create_autocmd({"BufWritePost"}, {
     print("Go LSP reloaded after updating go.mod or go.sum")
   end,
 })
+
+--- *** Formatters *** ---
+--
+-- Set up LSP formatting for Go to use goimports
+local formatters = require "lvim.lsp.null-ls.formatters"
+formatters.setup {
+  {
+    command = "goimports",
+    filetypes = { "go" },
+  },
+}
+
+-- Enable format on save
+lvim.format_on_save.enabled = true
