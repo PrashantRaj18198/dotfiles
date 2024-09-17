@@ -95,7 +95,7 @@ lvim.plugins = {
     event = "BufRead",
     config = function()
       vim.cmd "highlight default link gitblame SpecialComment"
-      require("gitblame").setup { enabled = false }
+      require("gitblame").setup { enabled = true }
     end,
   },
   -- {
