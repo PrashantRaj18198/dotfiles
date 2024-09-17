@@ -98,6 +98,10 @@ lvim.plugins = {
       require("gitblame").setup { enabled = false }
     end,
   },
+  {
+    "sindrets/diffview.nvim",
+    event = "BufRead",
+  },
 }
 
 lvim.builtin.nvimtree.active = false
