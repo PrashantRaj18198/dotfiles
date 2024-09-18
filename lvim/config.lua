@@ -135,6 +135,40 @@ if vim.fn.filereadable(project_dap_config) == 1 then
   dofile(project_dap_config)
 end
 
+local dap = require('dap')
+
+dap.set_log_level('TRACE')
+
+dap.configurations.go = {
+  {
+    name = "Debug WarpBuild",
+    type = "go",
+    request = "launch",
+    program = "${workspaceFolder}/main.go",
+    mode = "auto",
+    dlvToolPath = vim.fn.exepath("dlv"), -- Ensure dlv is installed
+  },
+  {
+    name = "Debug Migrations",
+    type = "go",
+    request = "launch",
+    program = "${workspaceFolder}/migrations/main.go",
+    mode = "auto",
+    cwd = "${workspaceFolder}",
+    args = { "" },
+    showLog = true,
+  },
+  {
+    name = "Debug Workflows Refresher",
+    type = "go",
+    request = "launch",
+    program = "${workspaceFolder}/cmd/workflowsrefresher/main.go",
+    mode = "auto",
+    cwd = "${workspaceFolder}",
+    args = {},
+  },
+}
+
 lvim.builtin.nvimtree.active = false
 
 -- *** KEY REMAPS *** ---
