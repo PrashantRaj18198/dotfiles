@@ -116,6 +116,7 @@ lvim.plugins = {
 --- *** DAP and its key maps *** ---
 -- DAP Go setup
 local dap_go = require("dap-go")
+
 dap_go.setup()
 -- DAP UI setup (optional but useful)
 local dap_ui = require("dapui")
