@@ -119,6 +119,7 @@ local dap_go = require("dap-go")
 dap_go.setup()
 -- DAP UI setup (optional but useful)
 local dap_ui = require("dapui")
+local dap = require('dap')
 dap_ui.setup()
 -- Keybindings for DAP (you can change these as needed)
 lvim.builtin.dap.active = true
@@ -135,7 +136,6 @@ if vim.fn.filereadable(project_dap_config) == 1 then
   dofile(project_dap_config)
 end
 
-local dap = require('dap')
 
 dap.set_log_level('TRACE')
 
