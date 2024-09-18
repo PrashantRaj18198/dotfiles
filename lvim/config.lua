@@ -129,6 +129,11 @@ lvim.keys.normal_mode["<leader>di"] = ":lua require'dap'.step_into()<CR>"
 lvim.keys.normal_mode["<leader>do"] = ":lua require'dap'.step_over()<CR>"
 lvim.keys.normal_mode["<leader>du"] = ":lua require'dapui'.toggle()<CR>" -- For toggling the DAP UI
 
+-- Load project-specific DAP configuration
+local project_dap_config = vim.fn.getcwd() .. "/.nvim/dap_config.lua"
+if vim.fn.filereadable(project_dap_config) == 1 then
+  dofile(project_dap_config)
+end
 
 lvim.builtin.nvimtree.active = false
 
