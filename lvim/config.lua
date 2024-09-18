@@ -136,7 +136,6 @@ if vim.fn.filereadable(project_dap_config) == 1 then
   dofile(project_dap_config)
 end
 
-
 dap.set_log_level('TRACE')
 
 dap.configurations.go = {
