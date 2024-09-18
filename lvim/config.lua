@@ -124,11 +124,11 @@ dap_ui.setup()
 -- Keybindings for DAP (you can change these as needed)
 lvim.builtin.dap.active = true
 -- Keybindings for debugging
-lvim.keys.normal_mode["<leader>dc"] = ":lua require'dap'.continue()<CR>"
-lvim.keys.normal_mode["<leader>db"] = ":lua require'dap'.toggle_breakpoint()<CR>"
-lvim.keys.normal_mode["<leader>di"] = ":lua require'dap'.step_into()<CR>"
-lvim.keys.normal_mode["<leader>do"] = ":lua require'dap'.step_over()<CR>"
-lvim.keys.normal_mode["<leader>du"] = ":lua require'dapui'.toggle()<CR>" -- For toggling the DAP UI
+lvim.keys.normal_mode["<leader>dc"] = ":lua require('dap').continue()<CR>"
+lvim.keys.normal_mode["<leader>db"] = ":lua require('dap').toggle_breakpoint()<CR>"
+lvim.keys.normal_mode["<leader>di"] = ":lua require('dap').step_into()<CR>"
+lvim.keys.normal_mode["<leader>do"] = ":lua require('dap').step_over()<CR>"
+lvim.keys.normal_mode["<leader>du"] = ":lua require('dapui').toggle()<CR>" -- For toggling the DAP UI
 
 -- Load project-specific DAP configuration
 local project_dap_config = vim.fn.getcwd() .. "/.nvim/dap_config.lua"
