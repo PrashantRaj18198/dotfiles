@@ -65,7 +65,7 @@ lvim.plugins = {
       require("nvim-tree").setup({
         view = {
           side = "right",
-          width = 50,
+          width = 60,
         },
         renderer = {
           icons = {
