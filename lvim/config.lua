@@ -278,3 +278,6 @@ end
 dap.listeners.before.event_exited["dapui_config"] = function()
   dapui.close()
 end
+
+vim.lsp.set_log_level("debug")
+require('dap').set_log_level('TRACE')
