@@ -63,9 +63,6 @@ lvim.plugins = {
     "nvim-tree/nvim-tree.lua",
     config = function()
       require("nvim-tree").setup({
-        diagnostic = {
-          enable = true,
-        },
         view = {
           side = "right",
           width = 45,
