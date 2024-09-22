@@ -262,13 +262,18 @@ formatters.setup {
 -- Enable format on save
 lvim.format_on_save.enabled = true
 
+-- Log the current working directory
+local cwd = vim.fn.getcwd()
+log_message("Current Working Directory (cwd): " .. cwd)
 -- Check and load project-specific DAP configuration if it exists
 local project_dap_config = vim.fn.getcwd() .. "/.nvim/dap_config.lua"
 if vim.fn.filereadable(project_dap_config) == 1 then
   print("Loading project-specific DAP config from: " .. project_dap_config)
+  log_message("Loading project-specific DAP config from: " .. project_dap_config)
   dofile(project_dap_config)
 else
   print("No project-specific DAP config found at: " .. project_dap_config)
+  log_message("No project-specific DAP config found at: " .. project_dap_config)
 end
 
 -- Ensure dapui is set up after loading DAP configurations
