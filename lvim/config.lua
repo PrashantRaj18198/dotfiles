@@ -370,7 +370,7 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 -- })
 
 vim.keymap.set("n", "<leader>ss", ":SessionSave<CR>", { desc = "Save session" })
-vim.keymap.set("n", "<leader>sl", ":SessionRestore<CR>", { desc = "Load session" })
+vim.keymap.set("n", "<leader>sa", ":SessionRestore<CR>", { desc = "Load session" })
 vim.keymap.set("n", "<leader>sd", ":SessionDelete<CR>", { desc = "Delete session" })
 
 
