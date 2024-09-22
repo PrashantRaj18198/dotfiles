@@ -112,8 +112,8 @@ lvim.plugins = {
       },
     },
   },
-  { "Bilal2453/luvit-meta", lazy = true },   -- optional `vim.uv` typings
-  {                                          -- optional completion source for require statements and module annotations
+  { "Bilal2453/luvit-meta", lazy = true }, -- optional `vim.uv` typings
+  {                                        -- optional completion source for require statements and module annotations
     "hrsh7th/nvim-cmp",
     opts = function(_, opts)
       opts.sources = opts.sources or {}
@@ -182,6 +182,30 @@ lvim.plugins = {
     }
   }
 }
+
+-- Set nvim-tree to appear on the right side
+require("nvim-tree").setup({
+  view = {
+    side = "right",
+    width = 30,
+  },
+  renderer = {
+    icons = {
+      show = {
+        git = true,
+        folder = true,
+        file = true,
+        folder_arrow = true,
+      },
+    },
+  },
+  filters = {
+    dotfiles = false,
+  },
+  git = {
+    enable = true,
+  },
+})
 
 -- require("neodev").setup({
 --   library = { plugins = { "nvim-dap-ui" }, types = true },
