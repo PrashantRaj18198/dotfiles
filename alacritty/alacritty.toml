@@ -362,6 +362,8 @@ chars = "\u0002/"
 key = "F"
 mods = "Command"
 
+
+
 [mouse]
 hide_when_typing = true
 
