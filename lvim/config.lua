@@ -359,7 +359,7 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 -- Function to save session with a delay
 local function delayed_save_session()
   vim.defer_fn(function()
-    vim.cmd("SaveSession")
+    vim.cmd("SessionSave")
   end, 3000) -- 3 second delay
 end
 
