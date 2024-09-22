@@ -22,7 +22,7 @@ local function open_neo_tree()
 end
 
 vim.g.mapleader = " "
-vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+-- vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
 -- -- Automatically change the current working directory to the directory of the opened file
 -- vim.cmd([[
@@ -163,28 +163,6 @@ lvim.plugins = {
   { "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } }, -- For the DAP UI
   { "leoluz/nvim-dap-go" },                                                                        -- For Go debugging support
   --- Session management
-  {
-    'rmagatti/auto-session',
-    lazy = true,
-    ---enables autocomplete for opts
-    ---@module "auto-session"
-    ---@type AutoSession.Config
-    opts = {
-      suppressed_dirs = { '~/', '~/Projects', '~/Downloads', '/' },
-      -- log_level = 'debug',
-      auto_session_create_enabled = true,
-      auto_save_enabled = true,
-      auto_restore_enabled = true,
-      auto_session_use_git_branch = true,
-      bypass_session_save_file_types = { "neo-tree" },
-      pre_save_cmds = {
-        close_neo_tree,
-      },
-      post_restore_cmds = {
-        open_neo_tree,
-      }
-    }
-  }
 }
 
 require("neodev").setup({
