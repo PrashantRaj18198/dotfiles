@@ -141,16 +141,6 @@ vim.keymap.set("n", "<leader>dq", dap.terminate, { desc = "Terminate Debugger" }
 -- DAP UI keybindings
 vim.keymap.set("n", "<leader>du", function() require('dapui').toggle() end, { desc = "Toggle DAP UI" })
 
--- Check and load project-specific DAP configuration if it exists
-local project_dap_config = vim.fn.getcwd() .. "/.nvim/dap_config.lua"
-if vim.fn.filereadable(project_dap_config) == 1 then
-  print("Loading project-specific DAP config from: " .. project_dap_config)
-  dofile(project_dap_config)
-else
-  print("No project-specific DAP config found at: " .. project_dap_config)
-end
-
-
 lvim.builtin.nvimtree.active = false
 
 -- *** KEY REMAPS *** ---
@@ -266,3 +256,12 @@ formatters.setup {
 
 -- Enable format on save
 lvim.format_on_save.enabled = true
+
+-- Check and load project-specific DAP configuration if it exists
+local project_dap_config = vim.fn.getcwd() .. "/.nvim/dap_config.lua"
+if vim.fn.filereadable(project_dap_config) == 1 then
+  print("Loading project-specific DAP config from: " .. project_dap_config)
+  dofile(project_dap_config)
+else
+  print("No project-specific DAP config found at: " .. project_dap_config)
+end
