@@ -189,22 +189,22 @@ require("nvim-tree").setup({
     side = "right",
     width = 30,
   },
-  renderer = {
-    icons = {
-      show = {
-        git = true,
-        folder = true,
-        file = true,
-        folder_arrow = true,
-      },
-    },
-  },
-  filters = {
-    dotfiles = false,
-  },
-  git = {
-    enable = true,
-  },
+  -- renderer = {
+  --   icons = {
+  --     show = {
+  --       git = true,
+  --       folder = true,
+  --       file = true,
+  --       folder_arrow = true,
+  --     },
+  --   },
+  -- },
+  -- filters = {
+  --   dotfiles = false,
+  -- },
+  -- git = {
+  --   enable = true,
+  -- },
 })
 
 -- require("neodev").setup({
