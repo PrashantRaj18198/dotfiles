@@ -163,7 +163,12 @@ lvim.plugins = {
   { "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } }, -- For the DAP UI
   { "leoluz/nvim-dap-go" },                                                                        -- For Go debugging support
   --- Session management
-  { "mhinz/vim-startify" },
+
+  {
+    "olimorris/persisted.nvim",
+    lazy = false, -- make sure the plugin is always loaded at startup
+    config = true
+  }
 }
 
 require("neodev").setup({
