@@ -113,7 +113,7 @@ lvim.plugins = {
     },
   },
   { "Bilal2453/luvit-meta",   lazy = true }, -- optional `vim.uv` typings
-  {                                        -- optional completion source for require statements and module annotations
+  {                                          -- optional completion source for require statements and module annotations
     "hrsh7th/nvim-cmp",
     opts = function(_, opts)
       opts.sources = opts.sources or {}
@@ -210,7 +210,7 @@ vim.keymap.set("n", "<leader>dO", dap.step_out, { desc = "Step Out" })
 vim.keymap.set("n", "<leader>dr", dap.restart, { desc = "Restart Debugger" })
 vim.keymap.set("n", "<leader>dq", dap.terminate, { desc = "Terminate Debugger" })
 
-lvim.builtin.nvimtree.active = false
+-- lvim.builtin.nvimtree.active = false
 
 -- *** KEY REMAPS *** ---
 
