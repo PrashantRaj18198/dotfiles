@@ -356,6 +356,19 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
   end,
 })
 
+-- Function to save session with a delay
+local function delayed_save_session()
+  vim.defer_fn(function()
+    vim.cmd("SaveSession")
+  end, 3000) -- 3 second delay
+end
+
+-- Autocommand to save session on file write with delay
+vim.api.nvim_create_autocmd("BufWritePost", {
+  pattern = "*",
+  callback = delayed_save_session,
+})
+
 --- *** Formatters *** ---
 --
 -- Set up LSP formatting for Go to use goimports
