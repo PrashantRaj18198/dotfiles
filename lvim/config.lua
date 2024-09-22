@@ -65,7 +65,7 @@ lvim.plugins = {
       require("nvim-tree").setup({
         view = {
           side = "right",
-          width = 60,
+          width = 30,
         },
         renderer = {
           indent_markers = {
