@@ -234,7 +234,7 @@ vim.keymap.set("n", "<leader>dO", dap.step_out, { desc = "Step Out" })
 vim.keymap.set("n", "<leader>dr", dap.restart, { desc = "Restart Debugger" })
 vim.keymap.set("n", "<leader>dq", dap.terminate, { desc = "Terminate Debugger" })
 
--- lvim.builtin.nvimtree.active = false
+lvim.builtin.nvimtree.active = false
 
 -- *** KEY REMAPS *** ---
 
