@@ -369,6 +369,11 @@ vim.api.nvim_create_autocmd("BufWritePost", {
   callback = delayed_save_session,
 })
 
+vim.keymap.set("n", "<leader>ss", ":SessionSave<CR>", { desc = "Save session" })
+vim.keymap.set("n", "<leader>sl", ":SessionRestore<CR>", { desc = "Load session" })
+vim.keymap.set("n", "<leader>sd", ":SessionDelete<CR>", { desc = "Delete session" })
+
+
 --- *** Formatters *** ---
 --
 -- Set up LSP formatting for Go to use goimports
