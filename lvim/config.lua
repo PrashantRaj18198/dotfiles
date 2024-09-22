@@ -227,29 +227,6 @@ lvim.plugins = {
 }
 
 -- Set nvim-tree to appear on the right side
-require("nvim-tree").setup({
-  view = {
-    side = "right",
-    width = 30,
-  },
-  -- renderer = {
-  --   icons = {
-  --     show = {
-  --       git = true,
-  --       folder = true,
-  --       file = true,
-  --       folder_arrow = true,
-  --     },
-  --   },
-  -- },
-  -- filters = {
-  --   dotfiles = false,
-  -- },
-  -- git = {
-  --   enable = true,
-  -- },
-})
-
 -- require("neodev").setup({
 --   library = { plugins = { "nvim-dap-ui" }, types = true },
 -- })
