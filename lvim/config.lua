@@ -308,7 +308,6 @@ else
 end
 
 -- Ensure dapui is set up after loading DAP configurations
-require('dapui').close()
 require('dapui').setup()
 
 -- Automatically open DAP UI when debugging starts
