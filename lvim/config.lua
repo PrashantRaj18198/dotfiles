@@ -11,6 +11,14 @@ local function log_message(message)
   log_file:close()
 end
 
+-- Automatically change the current working directory to the directory of the opened file
+vim.cmd([[
+  augroup AutoChangeDirectory
+    autocmd!
+    autocmd BufEnter * silent! lcd %:p:h
+  augroup END
+]])
+
 -- lvim.leader = "g"
 lvim.plugins = {
   {
