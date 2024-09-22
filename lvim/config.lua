@@ -59,6 +59,7 @@ lvim.plugins = {
   {
     "lepture/vim-jinja",
   },
+  { "nvim-tree/nvim-tree.lua" },
   -- {
   --   "nvim-neo-tree/neo-tree.nvim",
   --   branch = "v2.x",
@@ -111,7 +112,7 @@ lvim.plugins = {
       },
     },
   },
-  { "Bilal2453/luvit-meta", lazy = true }, -- optional `vim.uv` typings
+  { "Bilal2453/luvit-meta",   lazy = true }, -- optional `vim.uv` typings
   {                                        -- optional completion source for require statements and module annotations
     "hrsh7th/nvim-cmp",
     opts = function(_, opts)
