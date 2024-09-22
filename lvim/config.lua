@@ -12,6 +12,7 @@ local function log_message(message)
 end
 
 vim.g.mapleader = " "
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
 -- -- Automatically change the current working directory to the directory of the opened file
 -- vim.cmd([[
