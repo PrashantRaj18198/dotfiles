@@ -155,7 +155,7 @@ dap.configurations.go = {
     type = "go",
     request = "launch",
     program = "${workspaceFolder}/main.go",
-    mode = "auto",
+    mode = "debug",
     dlvToolPath = vim.fn.exepath("dlv"), -- Ensure dlv is installed
   },
   {
@@ -163,7 +163,7 @@ dap.configurations.go = {
     type = "go",
     request = "launch",
     program = "${workspaceFolder}/migrations/main.go",
-    mode = "auto",
+    mode = "debug",
     cwd = "${workspaceFolder}",
     args = { "" },
     showLog = true,
@@ -173,7 +173,7 @@ dap.configurations.go = {
     type = "go",
     request = "launch",
     program = "${workspaceFolder}/cmd/workflowsrefresher/main.go",
-    mode = "auto",
+    mode = "debug",
     cwd = "${workspaceFolder}",
     args = {},
   },
