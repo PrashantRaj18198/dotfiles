@@ -148,7 +148,6 @@ if vim.fn.filereadable(project_dap_config) == 1 then
 end
 
 
-
 lvim.builtin.nvimtree.active = false
 
 -- *** KEY REMAPS *** ---
