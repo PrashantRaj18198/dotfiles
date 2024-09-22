@@ -179,6 +179,8 @@ dap.configurations.go = {
   },
 }
 
+
+
 lvim.builtin.nvimtree.active = false
 
 -- *** KEY REMAPS *** ---
@@ -211,15 +213,56 @@ lvim.keys.insert_mode["<C-/>"] = "<esc><cmd>lua require('Comment.api').toggle.li
 -- Go to the next diagnostic (error, warning, etc.)
 lvim.keys.normal_mode["]d"] = "<cmd>lua vim.diagnostic.goto_next({severity = vim.diagnostic.severity.ERROR})<CR>"
 
-lvim.builtin.which_key.mappings["t"] = {
-  name = "+Terminal",
-  f = { "<cmd>ToggleTerm<cr>", "Floating terminal" },
-  l = { "<cmd>2ToggleTerm size=30 direction=vertical<cr>", "Split vertical" },
-  j = { "<cmd>2ToggleTerm size=30 direction=horizontal<cr>", "Split horizontal" },
-}
-
 -- Go to the previous diagnostic (error, warning, etc.)
 lvim.keys.normal_mode["[d"] = "<cmd>lua vim.diagnostic.goto_prev({severity = vim.diagnostic.severity.ERROR})<CR>"
+
+--- Terminal stuff ---
+-- Table to keep track of terminal buffers
+local terminal_buffers = {}
+
+-- Function to open or switch to a terminal buffer
+local function open_or_switch_to_terminal(term_num)
+  -- If the terminal buffer exists and is loaded, switch to it
+  if terminal_buffers[term_num] and vim.api.nvim_buf_is_loaded(terminal_buffers[term_num]) then
+    vim.api.nvim_set_current_buf(terminal_buffers[term_num])
+  else
+    -- Otherwise, create a new terminal buffer
+    if term_num == 1 then
+      vim.cmd("split | terminal")
+    elseif term_num == 2 then
+      vim.cmd("vsplit | terminal")
+    elseif term_num == 3 then
+      vim.api.nvim_open_win(vim.api.nvim_create_buf(false, true), true, {
+        relative = "editor",
+        width = math.floor(vim.o.columns * 0.8),
+        height = math.floor(vim.o.lines * 0.8),
+        row = math.floor(vim.o.lines * 0.1),
+        col = math.floor(vim.o.columns * 0.1),
+        style = "minimal",
+        border = "rounded"
+      })
+      vim.cmd("terminal")
+    end
+    -- Store the buffer number in the table
+    terminal_buffers[term_num] = vim.api.nvim_get_current_buf()
+  end
+end
+
+-- Keybindings to open or switch to terminal 1
+vim.keymap.set("n", "<leader>t1", function() open_or_switch_to_terminal(1) end, { desc = "Open/Switch to Terminal 1" })
+
+-- Keybindings to open or switch to terminal 2
+vim.keymap.set("n", "<leader>t2", function() open_or_switch_to_terminal(2) end, { desc = "Open/Switch to Terminal 2" })
+
+-- Keybindings to open or switch to terminal 3
+vim.keymap.set("n", "<leader>t3", function() open_or_switch_to_terminal(3) end, { desc = "Open/Switch to Terminal 3" })
+
+-- Keybinding to close the current terminal buffer
+vim.keymap.set("n", "<leader>tc", ":bdelete!<CR>", { desc = "Close Current Terminal" })
+
+-- Quickly exit terminal mode back to normal mode
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit Terminal Mode" })
+
 
 --- *** File type associations *** ---
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
