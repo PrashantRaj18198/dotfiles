@@ -123,8 +123,8 @@ lvim.plugins = {
   --
   -- DAP plugins
   { "mfussenegger/nvim-dap" },
-  { "rcarriga/nvim-dap-ui" }, -- For the DAP UI
-  { "leoluz/nvim-dap-go" },   -- For Go debugging support
+  { "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } }, -- For the DAP UI
+  { "leoluz/nvim-dap-go" },                                                                      -- For Go debugging support
 
 }
 
