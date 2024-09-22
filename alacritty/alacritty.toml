@@ -47,7 +47,7 @@ print_events = false
 render_timer = false
 
 [font]
-size = 14.0
+size = 16.0
 
 # [font.bold]
 # family = "Fire Code Nerd Font"
