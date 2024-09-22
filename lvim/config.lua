@@ -151,9 +151,6 @@ vim.keymap.set("n", "<leader>dO", dap.step_out, { desc = "Step Out" })
 vim.keymap.set("n", "<leader>dr", dap.restart, { desc = "Restart Debugger" })
 vim.keymap.set("n", "<leader>dq", dap.terminate, { desc = "Terminate Debugger" })
 
--- DAP UI keybindings
-vim.keymap.set("n", "<leader>du", function() require('dapui').toggle() end, { desc = "Toggle DAP UI" })
-
 lvim.builtin.nvimtree.active = false
 
 -- *** KEY REMAPS *** ---
@@ -301,3 +298,6 @@ end
 
 vim.lsp.set_log_level("debug")
 require('dap').set_log_level('TRACE')
+
+-- DAP UI keybindings
+vim.keymap.set("n", "<leader>du", function() require('dapui').toggle() end, { desc = "Toggle DAP UI" })
