@@ -139,7 +139,8 @@ vim.keymap.set("n", "<leader>dr", dap.restart, { desc = "Restart Debugger" })
 vim.keymap.set("n", "<leader>dq", dap.terminate, { desc = "Terminate Debugger" })
 
 -- DAP UI keybindings
-vim.keymap.set("n", "<leader>du", dapui.toggle, { desc = "Toggle DAP UI" })
+vim.keymap.set("n", "<leader>du", function() require('dapui').toggle() end, { desc = "Toggle DAP UI" })
+
 
 -- Load project-specific DAP configuration
 local project_dap_config = vim.fn.getcwd() .. "/.nvim/dap_config.lua"
