@@ -59,6 +59,36 @@ lvim.plugins = {
   {
     "lepture/vim-jinja",
   },
+  {
+    "kyazdani42/nvim-tree.lua",
+    config = function()
+      require("nvim-tree").setup({
+        view = {
+          side = "right",
+          width = 30,
+        },
+        renderer = {
+          icons = {
+            show = {
+              git = true,
+              folder = true,
+              file = true,
+              folder_arrow = true,
+            },
+          },
+        },
+        filters = {
+          dotfiles = false,
+        },
+        git = {
+          enable = true,
+        },
+      })
+    end,
+    keys = {
+      { "<leader>e", ":NvimTreeToggle<CR>", desc = "Toggle file explorer" },
+    },
+  },
   -- { "nvim-tree/nvim-tree.lua" },
   -- {
   --   "nvim-neo-tree/neo-tree.nvim",
