@@ -163,10 +163,22 @@ lvim.plugins = {
   { "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } }, -- For the DAP UI
   { "leoluz/nvim-dap-go" },                                                                        -- For Go debugging support
   --- Session management
+  -- {
+  --   "olimorris/persisted.nvim",
+  --   lazy = false, -- make sure the plugin is always loaded at startup
+  --   config = true
+  -- }
   {
-    "olimorris/persisted.nvim",
-    lazy = false, -- make sure the plugin is always loaded at startup
-    config = true
+    'rmagatti/auto-session',
+    lazy = false,
+
+    ---enables autocomplete for opts
+    ---@module "auto-session"
+    ---@type AutoSession.Config
+    opts = {
+      suppressed_dirs = { '~/', '~/Projects', '~/Downloads', '/' },
+      -- log_level = 'debug',
+    }
   }
 }
 
