@@ -59,42 +59,42 @@ lvim.plugins = {
   {
     "lepture/vim-jinja",
   },
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v2.x",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons",
-      "MunifTanjim/nui.nvim",
-    },
-    config = function()
-      require("neo-tree").setup({
-        close_if_last_window = true,
-        window = {
-          position = "right",
-          width = 30,
-        },
-        buffers = {
-          follow_current_file = true,
-        },
-        filesystem = {
-          follow_current_file = true,
-          use_libuv_file_watcher = true,
-          filtered_items = {
-            hide_dotfiles = false,
-            hide_gitignored = false,
-            hide_by_name = {
-              "node_modules"
-            },
-            never_show = {
-              ".DS_Store",
-              "thumbs.db"
-            },
-          },
-        },
-      })
-    end
-  },
+  -- {
+  --   "nvim-neo-tree/neo-tree.nvim",
+  --   branch = "v2.x",
+  --   dependencies = {
+  --     "nvim-lua/plenary.nvim",
+  --     "nvim-tree/nvim-web-devicons",
+  --     "MunifTanjim/nui.nvim",
+  --   },
+  --   config = function()
+  --     require("neo-tree").setup({
+  --       close_if_last_window = true,
+  --       window = {
+  --         position = "right",
+  --         width = 30,
+  --       },
+  --       buffers = {
+  --         follow_current_file = true,
+  --       },
+  --       filesystem = {
+  --         follow_current_file = true,
+  --         use_libuv_file_watcher = true,
+  --         filtered_items = {
+  --           hide_dotfiles = false,
+  --           hide_gitignored = false,
+  --           hide_by_name = {
+  --             "node_modules"
+  --           },
+  --           never_show = {
+  --             ".DS_Store",
+  --             "thumbs.db"
+  --           },
+  --         },
+  --       },
+  --     })
+  --   end
+  -- },
   {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
@@ -232,8 +232,8 @@ lvim.keys.normal_mode["<leader><leader>"] = ":w<CR>"
 
 lvim.keys.normal_mode["gw"] = "<Cmd>BufferKill<CR>"
 
--- Map <leader>e to toggle and navigate to Neo-tree
-lvim.keys.normal_mode["<leader>e"] = ":Neotree focus<CR>"
+-- -- Map <leader>e to toggle and navigate to Neo-tree
+-- lvim.keys.normal_mode["<leader>e"] = ":Neotree focus<CR>"
 
 -- Comment toggle using Ctrl+/ in Insert mode
 lvim.keys.insert_mode["<C-/>"] = "<esc><cmd>lua require('Comment.api').toggle.linewise.current()<CR>a"
