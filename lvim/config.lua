@@ -3,6 +3,13 @@
 -- Video Tutorials: https://www.youtube.com/watch?v=sFA9kX-Ud_c&list=PLhoH5vyxr6QqGu0i7tt_XoVK9v-KvZ3m6
 -- Forum: https://www.reddit.com/r/lunarvim/
 -- Discord: https://discord.com/invite/Xb9B4Ny
+--
+--
+local function log_message(message)
+  local log_file = io.open(vim.fn.expand("~/.cache/nvim/path_log.log"), "a") -- Change the path if needed
+  log_file:write(message .. "\n")
+  log_file:close()
+end
 
 -- lvim.leader = "g"
 lvim.plugins = {
