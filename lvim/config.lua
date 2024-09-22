@@ -60,7 +60,7 @@ lvim.plugins = {
     "lepture/vim-jinja",
   },
   {
-    "kyazdani42/nvim-tree.lua",
+    "nvim-tree/nvim-tree.lua",
     config = function()
       require("nvim-tree").setup({
         diagnostic = {
