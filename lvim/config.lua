@@ -11,6 +11,8 @@ local function log_message(message)
   log_file:close()
 end
 
+vim.g.mapleader = " "
+
 -- -- Automatically change the current working directory to the directory of the opened file
 -- vim.cmd([[
 --   augroup AutoChangeDirectory
