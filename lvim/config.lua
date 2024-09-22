@@ -153,29 +153,27 @@ lvim.plugins = {
   { "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } }, -- For the DAP UI
   { "leoluz/nvim-dap-go" },                                                                        -- For Go debugging support
   --- Session management
-  -- {
-  --   'rmagatti/auto-session',
-  --   lazy = true,
-  --   ---enables autocomplete for opts
-  --   ---@module "auto-session"
-  --   ---@type AutoSession.Config
-  --   opts = {
-  --     suppressed_dirs = { '~/', '~/Projects', '~/Downloads', '/' },
-  --     -- log_level = 'debug',
-  --   }
-  -- }
   {
     'rmagatti/auto-session',
-    config = function()
-      require('auto-session').setup({
-        log_level = 'info',
-        auto_session_enabled = true,
-        auto_session_create_enabled = true,
-        auto_save_enabled = true,
-        auto_restore_enabled = true,
-        auto_session_suppress_dirs = { "~/" }, -- Don't save sessions for these directories
-      })
-    end
+    lazy = true,
+    ---enables autocomplete for opts
+    ---@module "auto-session"
+    ---@type AutoSession.Config
+    opts = {
+      suppressed_dirs = { '~/', '~/Projects', '~/Downloads', '/' },
+      -- log_level = 'debug',
+      auto_session_create_enabled = false,
+      auto_save_enabled = true,
+      auto_restore_enabled = true,
+      auto_session_use_git_branch = true,
+      bypass_session_save_file_types = { "neo-tree" },
+      pre_save_cmds = {
+        close_neo_tree,
+      },
+      post_restore_cmds = {
+        open_neo_tree,
+      }
+    }
   }
 }
 
