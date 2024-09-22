@@ -118,9 +118,7 @@ lvim.plugins = {
 local dap_go = require("dap-go")
 dap_go.setup()
 -- DAP UI setup (optional but useful)
-local dapui = require("dapui")
 local dap = require('dap')
-dapui.setup()
 -- Keybindings for DAP (you can change these as needed)
 lvim.builtin.dap.active = true
 -- Keybindings for debugging
