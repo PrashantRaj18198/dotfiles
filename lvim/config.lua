@@ -309,7 +309,8 @@ end
 
 -- Ensure dapui is set up after loading DAP configurations
 require('dapui').setup()
+local dapui = require('dapui')
 
 -- Automatically open DAP UI when debugging starts
 -- DAP UI keybindings
-vim.keymap.set("n", "<leader>du", function() require('dapui').toggle() end, { desc = "Toggle DAP UI" })
+vim.keymap.set("n", "<leader>du", dapui.toggle, { desc = "Toggle DAP UI" })
