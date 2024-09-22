@@ -286,9 +286,44 @@ require('dapui').setup()
 
 -- Automatically open DAP UI when debugging starts
 local dap, dapui = require("dap"), require("dapui")
+
+dapui.setup({
+  layouts = {
+    {
+      elements = {
+        { id = "scopes",      size = 0.25 },
+        { id = "breakpoints", size = 0.25 },
+        { id = "stacks",      size = 0.25 },
+        { id = "watches",     size = 0.25 },
+      },
+      size = 40, -- Width of the left panel
+      position = "left",
+    },
+    {
+      elements = {
+        "repl",
+        "console",
+      },
+      size = 10, -- Height of the bottom panel
+      position = "bottom",
+    },
+  },
+  floating = {
+    max_height = nil,   -- Max height of the floating window
+    max_width = nil,    -- Max width of the floating window
+    border = "rounded", -- Border style
+    mappings = {
+      close = { "q", "<Esc>" },
+    },
+  },
+})
+
+-- Automatically open DAP UI when debugging starts
 dap.listeners.after.event_initialized["dapui_config"] = function()
   dapui.open()
 end
+
+-- Automatically close DAP UI when debugging stops
 dap.listeners.before.event_terminated["dapui_config"] = function()
   dapui.close()
 end
