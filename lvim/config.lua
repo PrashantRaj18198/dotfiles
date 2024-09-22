@@ -356,18 +356,18 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
   end,
 })
 
--- Function to save session with a delay
-local function delayed_save_session()
-  vim.defer_fn(function()
-    vim.cmd("SessionSave")
-  end, 3000) -- 3 second delay
-end
+-- -- Function to save session with a delay
+-- local function delayed_save_session()
+--   vim.defer_fn(function()
+--     vim.cmd("SessionSave")
+--   end, 3000) -- 3 second delay
+-- end
 
--- Autocommand to save session on file write with delay
-vim.api.nvim_create_autocmd("BufWritePost", {
-  pattern = "*",
-  callback = delayed_save_session,
-})
+-- -- Autocommand to save session on file write with delay
+-- vim.api.nvim_create_autocmd("BufWritePost", {
+--   pattern = "*",
+--   callback = delayed_save_session,
+-- })
 
 vim.keymap.set("n", "<leader>ss", ":SessionSave<CR>", { desc = "Save session" })
 vim.keymap.set("n", "<leader>sl", ":SessionRestore<CR>", { desc = "Load session" })
