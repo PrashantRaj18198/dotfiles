@@ -68,6 +68,16 @@ lvim.plugins = {
           width = 60,
         },
         renderer = {
+          indent_markers = {
+            enable = true, -- Enable indent markers
+            icons = {
+              corner = "└ ",
+              edge = "│ ",
+              item = "│ ",
+              none = "  ", -- No indent marker for root level items
+            },
+          },
+          indent_width = 1, -- Set this to 1 to reduce the spacing (default is 2)
           icons = {
             show = {
               git = true,
