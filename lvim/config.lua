@@ -182,9 +182,9 @@ lvim.plugins = {
   }
 }
 
-require("neodev").setup({
-  library = { plugins = { "nvim-dap-ui" }, types = true },
-})
+-- require("neodev").setup({
+--   library = { plugins = { "nvim-dap-ui" }, types = true },
+-- })
 
 --- *** DAP and its key maps *** ---
 -- DAP Go setup
