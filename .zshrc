@@ -134,4 +134,23 @@ fi
 
 export PATH="/Users/prashant/.local/bin:$PATH"
 
+# Add this function to your .zshrc
+zip_untracked() {
+    # List untracked files
+    local untracked_files
+    untracked_files=$(git ls-files --others --exclude-standard)
+
+    # If there are no untracked files, exit
+    if [ -z "$untracked_files" ]; then
+        echo "No untracked files found."
+        return 0
+    fi
+
+    # Zip only files (no folders)
+    local zip_name="untracked_files.zip"
+    zip -r $zip_name $(echo "$untracked_files" | grep -v /) > /dev/null
+
+    echo "Created $zip_name with untracked files."
+}
+
 
