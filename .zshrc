@@ -154,3 +154,22 @@ zip_untracked() {
 }
 
 
+# Add this function to your .zshrc
+zip_ignored() {
+    # List git-ignored files (excluding folders)
+    local ignored_files
+    ignored_files=$(git ls-files --ignored --exclude-standard --others)
+
+    # If there are no ignored files, exit
+    if [ -z "$ignored_files" ]; then
+        echo "No ignored files found."
+        return 0
+    fi
+
+    # Zip only files (no folders)
+    local zip_name="ignored_files.zip"
+    zip -r $zip_name $(echo "$ignored_files" | grep -v /) > /dev/null
+
+    echo "Created $zip_name with ignored files."
+}
+
