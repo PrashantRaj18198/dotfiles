@@ -173,3 +173,5 @@ zip_ignored() {
     echo "Created $zip_name with ignored files."
 }
 
+export GPG_TTY=$(tty)
+
