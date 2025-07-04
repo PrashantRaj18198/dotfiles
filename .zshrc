@@ -175,3 +175,6 @@ zip_ignored() {
 
 export GPG_TTY=$(tty)
 
+
+# bun completions
+[ -s "/Users/prashant/.bun/_bun" ] && source "/Users/prashant/.bun/_bun"
