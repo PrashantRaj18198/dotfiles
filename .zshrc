@@ -178,3 +178,6 @@ export GPG_TTY=$(tty)
 
 # bun completions
 [ -s "/Users/prashant/.bun/_bun" ] && source "/Users/prashant/.bun/_bun"
+
+# Added by Antigravity
+export PATH="/Users/prashant/.antigravity/antigravity/bin:$PATH"
