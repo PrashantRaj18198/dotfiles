@@ -181,3 +181,7 @@ export GPG_TTY=$(tty)
 
 # Added by Antigravity
 export PATH="/Users/prashant/.antigravity/antigravity/bin:$PATH"
+
+if command -v ngrok &>/dev/null; then
+    eval "$(ngrok completion)"
+fi
