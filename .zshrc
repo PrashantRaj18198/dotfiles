@@ -185,3 +185,6 @@ export PATH="/Users/prashant/.antigravity/antigravity/bin:$PATH"
 if command -v ngrok &>/dev/null; then
     eval "$(ngrok completion)"
 fi
+
+. "$HOME/.cargo/env"            # For sh/bash/zsh/ash/dash/pdksh
+
